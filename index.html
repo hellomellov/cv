@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer</title>
+    <script>
+        function startCountdown() {
+            var countdownSeconds = 4406400;
+            var countdownDisplay = document.getElementById("countdown");
+
+            function updateCountdown() {
+                if (countdownSeconds <= 0) {
+                    countdownDisplay.innerHTML += "NOW<br>";
+                } else {
+                    countdownDisplay.innerHTML += countdownSeconds + " NOW<br>";
+                    countdownSeconds--;
+                    setTimeout(updateCountdown, 1000); // Update every second
+                }
+            }
+
+            updateCountdown();
+        }
+    </script>
+</head>
+<body>
+    <h1>Countdown Timer</h1>
+    <div id="countdown"></div>
+    <button onclick="startCountdown()">Start Countdown</button>
+</body>
+</html>
