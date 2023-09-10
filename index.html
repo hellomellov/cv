@@ -11,9 +11,9 @@
 
             function updateCountdown() {
                 if (countdownSeconds <= 0) {
-                    countdownDisplay.innerHTML += "NOW<br>";
+                    countdownDisplay.innerHTML = "GONE";
                 } else {
-                    countdownDisplay.innerHTML += countdownSeconds + " NOW<br>";
+                    countdownDisplay.innerHTML = countdownSeconds;
                     countdownSeconds--;
                     setTimeout(updateCountdown, 1000); // Update every second
                 }
@@ -21,11 +21,13 @@
 
             updateCountdown();
         }
+
+        // Automatically start the countdown when the page loads
+        window.onload = startCountdown;
     </script>
 </head>
 <body>
     <h1>Countdown Timer</h1>
     <div id="countdown"></div>
-    <button onclick="startCountdown()">Start Countdown</button>
 </body>
 </html>
